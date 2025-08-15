@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visual Computing & Robotics Lab - NIT Delhi</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background: #F1F1EF;
+            font-family: 'Roboto', Arial, sans-serif;
+            color: #242424;
+        }
+        /* Header */
+        .topbar {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: #386347;
+	    text-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .logo {
+            height: 40px;
+            margin-right: 15px;
+        }
+        .title {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #232323;
+            flex: 1;
+        }
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #232323;
+            font-weight: 500;
+            font-size: 1.12rem;
+            padding-bottom: 2px;
+            border-bottom: 3px solid transparent;
+            transition: border 0.1s;
+        }
+        .nav a.active {
+            border-bottom: 3px solid #fcd94b;
+            color: #111;
+        }
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 35px 24px 0 24px;
+        }
+        .centerbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .lab-logo {
+            width: 270px;
+            min-width: 170px;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.10);
+            margin-bottom: 15px;
+        }
+        .lab-title-welcome {
+            font-size: 3rem;
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+        .lab-title-sub {
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: -1.2px;
+            margin-top: -18px;
+            margin-bottom: 0;
+        }
+        /* Section breaks */
+        hr {
+            border: none;
+            border-top: 2px solid #e5e1dd;
+            margin: 50px 0 30px 0;
+        }
+        /* About */
+        .section-title {
+            font-size: 2.6rem;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 22px;
+            font-weight: 500;
+        }
+        .about-content {
+            font-size: 1.24rem;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            color: #474747;
+        }
+        .about-content a { color: #3767ca; text-decoration: underline; }
+        /* Research Grid */
+        .research-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            width: 380px;
+            margin: 30px auto 0 auto;
+            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+        }
+        .research-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            margin: 0 auto 35px auto;
+            max-width: 1100px;
+        }
+        .research-block {
+            background: #fff;
+            padding: 26px 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
+            min-width: 270px;
+            width: 320px;
+        }
+        .research-block h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.18rem;
+            font-style: italic;
+            font-weight: 700;
+        }
+        .research-block ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 1.08em;
+        }
+        .research-block ul li {
+            margin-bottom: 7px;
+        }
+        /* Coordinator, Collaborators, etc */
+        .coordinator-section {
+            max-width: 1050px;
+            margin: 0 auto 30px auto;
+            background: #fff;
+            border-radius: 9px;
+            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+            padding: 28px 40px;
+        }
+        .coordinator-section strong {
+            font-weight: 700;
+        }
+        /* Collaborators */
+        .collab-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-top: 0px;
+            margin-bottom: 20px;
+        }
+        .collab-list {
+            list-style: none;
+            padding-left: 0;
+            font-size: 1.15em;
+        }
+        .collab-list li {
+            margin-bottom: 10px;
+        }
+        /* Contacts */
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            flex-wrap: wrap;
+            margin: 25px 0 12px 0;
+        }
+        .contact-block {
+            background: #fff;
+            border-radius: 8px;
+            padding: 18px 26px;
+            font-size: 1.05em;
+            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05);
+            min-width: 500px;
+        }
+        .lab-email {
+            text-align: center;
+	    background: #fff;
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            margin-top: -12px;
+        }
+        .lab-email span {
+            background: ;
+            padding: 6px 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            color: #e39d11;
+        }
+        a { color: #3357BB; text-decoration: none; }
+        a:hover { text-decoration: underline;}
+        @media (max-width: 900px) {
+            .main-container {padding-left: 6vw;padding-right: 6vw;}
+            .centerbox {gap:24px;}
+            .research-grid {gap:16px;}
+            .coordinator-section {padding:15px 5vw;}
+        }
+        @media (max-width: 700px) {
+            .research-grid, .contact-grid {flex-direction:column; align-items:stretch;}
+            .main-container {padding:10px;}
+            .lab-title-welcome, .lab-title-sub {font-size:2rem;}
+            .section-title {font-size:1.6rem;}
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="topbar">
+        <!--<img src="https://i.ibb.co/jJwtvjx/vcr-logo.png" alt="Lab Logo" class="logo">-->
+        <div class="title" align="center" style="color: white">Visual Computing & Robotics Lab, National Institute of Technology, Delhi</div>
+        <nav class="nav">
+            <!--<a href="#" >Home</a>-->
+            <!--<a href="#" class="active">Research Lab</a>-->
+            <!--<a href="#">Publications</a>-->
+            <!--<a href="#">Lab Members</a>-->
+            <!--<a href="#">Activities</a>-->
+            <!--<a href="#">Gallery</a>-->
+            <!--<a href="#" style="font-size:1.2em">&#128269;</a>-->
+        </nav>
+    </div>
+    <div class="main-container">
+        <!-- Landing Section -->
+        <div class="centerbox" style="margin-bottom:30px;">
+            <img src="C:\Users\ksmis\Downloads\1.png" class="lab-logo" alt="Visual Computing & Robotics logo">
+            <div>
+                <div class="lab-title-welcome">Welcome to Visual<br>Computing &amp; Robotics Lab</div>
+            </div>
+        </div>
+
+        <hr>
+        <!-- About Section -->
+        <div>
+            <div class="section-title">About The Lab</div>
+            <div class="about-content">
+                With the goal of advancing society, the Visual Computing & Robotics Lab at NITD works to expand the limits of Visual Surveillance, Computer Vision, Machine Learning, Healthcare and Robotics research. We also welcome internship applications, so those interested can email <a href="mailto:gautam@nitdelhi.ac.in">gautam@nitdelhi.ac.in</a> along with their resume.
+            </div>
+        </div>
+
+        <!-- Research Section -->
+        <div class="research-title">Research</div><br>
+        <div class="research-grid">
+            <div class="research-block">
+                <h4>Healthcare &amp; Bioinformatics</h4>
+                <ul>
+                    <li>Cancer cells Classification</li>
+                    <li>Protein Function Prediction</li>
+                    <li>Medical Image Analysis</li>
+                </ul>
+            </div>
+            <div class="research-block">
+                <h4>Visual Surveillance &amp; Biometrics</h4>
+                <ul>
+                    <li>Cattle Biometrics</li>
+                    <li>Person Re-identification</li>
+                    <li>Forensic Audio and Video Analysis</li>
+                    <li>Person Authentication</li>
+                </ul>
+            </div>
+            <div class="research-block">
+                <h4>Machine Learning &amp; AI</h4>
+                <ul>
+                    <li>Large Language Model</li>
+                    <li>DeepFake Detection</li>
+                    <li>Generative AI</li>
+                    <li>Explainable Artificial Intelligence (XAI)</li>
+                </ul>
+            </div>
+            <div class="research-block">
+                <h4>Image Processing and Computer Vision</h4>
+                <ul>
+                    <li>Real-time Activity Detection</li>
+                    <li>Remote Sensing</li>
+                    <li>Agriculture and Healthcare Applications</li>
+                </ul>
+            </div>
+            <div class="research-block">
+                <h4>Robotics</h4>
+                <ul>
+                    <li>Line Follower and Object Detector Robots</li>
+                    <li>Drone Technology</li>
+                    <li>Autonomous Cars</li>
+                </ul>
+            </div>
+            <div class="research-block">
+                <h4>Natural Language Processing</h4>
+                <ul>
+                    <li>Multimodal Sentiment Analysis</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Faculty & Coordinator -->
+        <div class="coordinator-section">
+            <div style="font-style:italic; font-size:1.8em;">
+                <center><strong>Faculty & Lab Coordinator</strong></center><br>
+		<center><img src="C:\Users\ksmis\Downloads\Dr. Gautam Kumar_Pic.png" alt="Dr. Kumar's Picture"></img></center>
+		<div style="font-style:italic; font-size:0.75em;">
+                <strong><center>Dr. Gautam Kumar<br></strong></center><center>Assistant Professor, Department of Computer Science and Engineering, NIT Delhi</div></center>
+            </div>
+        </div>
+        <!-- Collaborators -->
+	<div class="coordinator-section">
+		<div class="collab-title">Collaborators &#128279;</div><br>
+		<div style="font-style:italic; font-size:1.18em;">
+                <li><strong>Dr. Rishav Singh</strong>, Indian Institute of Technology Patna</li>
+            	<li><strong>Dr. Chandra Prakash</strong>, Department of Computer Engineering, SVNIT, Surat Gujarat</li>
+            	<li><strong>Dr. Sambit Bakshi</strong>, National Institute of Technology Rourkela</li>
+            	<li><strong>Dr. Rahul Raman</strong>, Indian Institute of Information Technology, Design and Manufacturing, Kancheepuram</li>
+         	<li><strong>Dr. Deepak Ranjan Nayak</strong>, Malaviya National Institute of Technology, Jaipur</li>
+           	<li><strong>Dr. Abhinav Kumar</strong>, Motilal Nehru National Institute of Technology Allahabad, Prayagraj, India-211004</li>
+            </div>
+        </div>
+<div class="coordinator-section">
+            <div style="font-style:italic; font-size:1.8em;">
+                <center><strong>Patent Project: SolarSolace</strong></center><br>
+		<center><img height=15% width=15% src="C:\Users\ksmis\Downloads\New Pic_Chetan Sarup Mishra.jpg" alt="Chetan's Picture"></img></center>
+		<div style="font-style:italic; font-size:0.75em;">
+                <strong><center>Chetan Sarup Mishra<br></strong></center><center>BTech Sophomore, Computer Science and Engineering, NIT Delhi</div></center><br>
+		<div style="font-style:italic; font-size:0.75em;">
+                <strong><center>SolarSolace was envisioned under the very able guidance of Dr. Gautam Kumar</div></center><br>
+		<div style="font-style:italic; font-size:0.65em; font-weight:normal">
+                A patent is published for the project, which is an amalgamation of robotics & optics, aimed at solving the inavailability of natural light in millions of residential and commercial buildings, with a projected growth of $500 million. This brings a drastic reduction in the demand for artificially generated energy, becoming a boon for the environment, while being a solution to the numerous health issues which are a long-term effect of the same.</div>
+            </div>
+        </div>
+
+        <!-- Contacts -->
+        <div class="contact-grid">
+            <div class="contact-block">
+                <div><b>Office:</b> Room No 221, 2nd Floor, Admin Block, NITD</div>
+                <div><b>Mobile:</b> +91-8292556170</div>
+                <div><a href="mailto:gautam@nitdelhi.ac.in">gautam@nitdelhi.ac.in</a></div>
+            </div>
+            <div class="contact-block">
+                <div><b>For any inquiries, please contact:</b></div>
+                <div>Dept. of CSE, NIT Delhi</div>
+                <div><b>Phone:</b> +1-234-567-8910</div>
+                <div><a href="mailto:cse@nitdelhi.ac.in">cse@nitdelhi.ac.in</a></div>
+            </div>
+        </div><br>
+        <div class="lab-email">
+            VCR Lab Email: <span>vcr@nitdelhi.ac.in</span>
+        </div>
+    </div>
+<footer align="center">
+    Visual Computing & Robotics Lab &copy; 2025 NIT Delhi. All rights reserved.<br><br>
+</footer>
+</body>
+</html>
