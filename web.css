@@ -11,6 +11,10 @@
             font-family: 'Roboto', Arial, sans-serif;
             color: #242424;
         }
+a
+{
+color: $F1F1EF;
+}
         /* Header */
         .topbar {
             display: flex;
@@ -231,10 +235,10 @@
         <!--<img src="D:\Projects\VCR Lab Website_Dr. Gautam Kumar\1.png" alt="Lab Logo" class="logo">-->
         <div class="title" align="center" style="color: white">Visual Computing & Robotics Lab, National Institute of Technology, Delhi</div>
         <nav class="nav">
-            <!--<a href="#" >Home</a>-->
+            <a href="https://chetansarupmishra.github.io/VCR-Lab-Site/"><p style="color: white">Home</p></a>
             <!--<a href="#" class="active">Research Lab</a>-->
             <!--<a href="#">Publications</a>-->
-            <!--<a href="#">Lab Members</a>-->
+            <a href="#"><p style="color: white">Lab Members</p></a>
             <!--<a href="#">Activities</a>-->
             <!--<a href="#">Gallery</a>-->
             <!--<a href="#" style="font-size:1.2em">&#128269;</a>-->
